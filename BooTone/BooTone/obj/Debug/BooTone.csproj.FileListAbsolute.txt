@@ -1,0 +1,7 @@
+D:\BIM_Work\RD_Revit\BooTone\BooTone\bin\Debug\BooTone.addin
+D:\BIM_Work\RD_Revit\BooTone\BooTone\bin\Debug\BooTone.dll
+D:\BIM_Work\RD_Revit\BooTone\BooTone\bin\Debug\BooTone.pdb
+D:\BIM_Work\RD_Revit\BooTone\BooTone\obj\Debug\BooTone.csproj.AssemblyReference.cache
+D:\BIM_Work\RD_Revit\BooTone\BooTone\obj\Debug\BooTone.csproj.CoreCompileInputs.cache
+D:\BIM_Work\RD_Revit\BooTone\BooTone\obj\Debug\BooTone.dll
+D:\BIM_Work\RD_Revit\BooTone\BooTone\obj\Debug\BooTone.pdb
