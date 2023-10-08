@@ -7,7 +7,7 @@
 		<Description>BIM work adjusting angle 60</Description>
 		<VisibilityMode>AlwaysVisible</VisibilityMode>
 		<Assembly>
-			BIMwork.dll
+			D:\BIM_Work\M3S\BIMwork\BIMwork\bin\Debug\BIMwork.dll
 		</Assembly>
 		<AddInId>502fe383-2648-4e98-adf8-5e6047f9dc34</AddInId>
 		<VendorId>HaiM3SV</VendorId>
@@ -21,7 +21,7 @@
 		<Description>BIM work adjusting angle 90</Description>
 		<VisibilityMode>AlwaysVisible</VisibilityMode>
 		<Assembly>
-			BIMwork.dll
+			D:\BIM_Work\M3S\BIMwork\BIMwork\bin\Debug\BIMwork.dll
 		</Assembly>
 		<AddInId>E05B38D5-2824-452D-9E3C-AE824BF289CA</AddInId>
 		<VendorId>HaiM3SV</VendorId>
@@ -35,7 +35,7 @@
 		<Description>BIM work adjusting angle 120</Description>
 		<VisibilityMode>AlwaysVisible</VisibilityMode>
 		<Assembly>
-			BIMwork.dll
+			D:\BIM_Work\M3S\BIMwork\BIMwork\bin\Debug\BIMwork.dll
 		</Assembly>
 		<AddInId>6C59556A-F1C9-449A-B592-1F502D726C72</AddInId>
 		<VendorId>HaiM3SV</VendorId>
@@ -49,7 +49,7 @@
 		<Description>BIM work X-LeftAlign</Description>
 		<VisibilityMode>AlwaysVisible</VisibilityMode>
 		<Assembly>
-			BIMwork.dll
+			D:\BIM_Work\M3S\BIMwork\BIMwork\bin\Debug\BIMwork.dll
 		</Assembly>
 		<AddInId>92EA3222-6582-406E-A0B0-2FDBDA1C1F2B</AddInId>
 		<VendorId>HaiM3SV</VendorId>

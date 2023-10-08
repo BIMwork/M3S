@@ -1,7 +1,0 @@
-D:\BIM_Work\M3S\BIMwork\BIMwork\bin\Debug\BIMwork.dll
-D:\BIM_Work\M3S\BIMwork\BIMwork\bin\Debug\BIMwork.pdb
-D:\BIM_Work\M3S\BIMwork\BIMwork\obj\Debug\BIMwork.csproj.AssemblyReference.cache
-D:\BIM_Work\M3S\BIMwork\BIMwork\obj\Debug\BIMwork.csproj.CoreCompileInputs.cache
-D:\BIM_Work\M3S\BIMwork\BIMwork\obj\Debug\BIMwork.dll
-D:\BIM_Work\M3S\BIMwork\BIMwork\obj\Debug\BIMwork.pdb
-D:\BIM_Work\M3S\BIMwork\BIMwork\bin\Debug\BIMwork.addin
