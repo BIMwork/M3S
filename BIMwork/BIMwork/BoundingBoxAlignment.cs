@@ -52,9 +52,13 @@ namespace BIMwork
                             continue;
                         }
                         // handle agliment
-                        agliment(ref doc, ref view, ref el);
+                        // agliment(ref doc, ref view, ref el);
+                        String titleDialog = "Element Info";
+                        String messageDialog = "Category of el: " + el.Category.Name + Environment.NewLine
+                            + "Name of el: " + el.Name + Environment.NewLine
+                            + "Type of el: " + el.GetType().Name + Environment.NewLine;
+                        TaskDialog.Show(titleDialog, messageDialog);
                     }
-
                     trans.Commit();
                 }
                 return Result.Succeeded;
