@@ -69,6 +69,7 @@ namespace BIMwork
             // type
             TextNote newTxtNote = TextNote.Create(doc, view.Id, txtNote.Coord,
                 txtNote.Text, txtNote.GetTypeId());
+            newTxtNote.SetFormattedText(txtNote.GetFormattedText());
 
             // leader
             newTxtNote.LeaderLeftAttachment = txtNote.LeaderLeftAttachment;
