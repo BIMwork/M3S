@@ -43,7 +43,11 @@ namespace BIMwork
                     for (int i = 0; i < count; i++)
                     {
                         Element el = doc.GetElement(ids[i]);
-                        if (el == null || el.Category.Name != TEXT_NOTE_CATEGOR_NAME)
+                      /*  if (el == null || el.Category.Name != TEXT_NOTE_CATEGOR_NAME)
+                        {
+                            continue;
+                        }*/
+                        if (el == null)
                         {
                             continue;
                         }
