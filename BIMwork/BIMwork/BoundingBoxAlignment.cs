@@ -43,21 +43,12 @@ namespace BIMwork
                     for (int i = 0; i < count; i++)
                     {
                         Element el = doc.GetElement(ids[i]);
-                      /*  if (el == null || el.Category.Name != TEXT_NOTE_CATEGOR_NAME)
-                        {
-                            continue;
-                        }*/
-                        if (el == null)
+                        if (el == null || el.Category.Name != TEXT_NOTE_CATEGOR_NAME)
                         {
                             continue;
                         }
                         // handle agliment
-                        // agliment(ref doc, ref view, ref el);
-                        String titleDialog = "Element Info";
-                        String messageDialog = "Category of el: " + el.Category.Name + Environment.NewLine
-                            + "Name of el: " + el.Name + Environment.NewLine
-                            + "Type of el: " + el.GetType().Name + Environment.NewLine;
-                        TaskDialog.Show(titleDialog, messageDialog);
+                        agliment(ref doc, ref view, ref el);
                     }
                     trans.Commit();
                 }
