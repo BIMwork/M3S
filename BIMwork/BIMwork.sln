@@ -5,6 +5,8 @@ VisualStudioVersion = 17.6.33829.357
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BIMwork", "BIMwork\BIMwork.csproj", "{F396D768-003F-4383-A83E-348B96270A34}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "BIMworkSetup", "BIMworkSetup\BIMworkSetup.vdproj", "{1DE68F98-C910-4244-B1CB-42CC56DE7F49}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,8 @@ Global
 		{F396D768-003F-4383-A83E-348B96270A34}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F396D768-003F-4383-A83E-348B96270A34}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F396D768-003F-4383-A83E-348B96270A34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DE68F98-C910-4244-B1CB-42CC56DE7F49}.Debug|Any CPU.ActiveCfg = Debug
+		{1DE68F98-C910-4244-B1CB-42CC56DE7F49}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
