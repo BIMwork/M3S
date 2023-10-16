@@ -86,8 +86,12 @@ namespace BIMwork
 
                         // add list delete family type
                         // string categoryName = familyType.Category.Name;
+                        string categoryFamilyNameInDB = family.FamilyCategory.GetType().ToString();
+                        string categoryTypeFamilyInDB = family.FamilyCategory.CategoryType.GetType().ToString();
+
                         string categoryFamilyName = family.FamilyCategory.Name;
                         string categoryTypeFamily = family.FamilyCategory.CategoryType.ToString();
+
                         string familyTypeName = familyType.Name;
                         bool isValidCategory = categoryFamilyName != PROFILES_CATEGORY
                             && categoryFamilyName != DETAIL_ITEMS_CATEGORY

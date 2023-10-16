@@ -11,9 +11,9 @@ namespace BIMwork
     public class YWithAlign : IExternalCommand
     {
         private const string Y_WITH_ALIGN = "Y_WITH_ALIGN";
-        private const string TEXT_NOTE_CATEGOR_NAME = "Text Notes";
-        private const string TAG_CATEGORY_NAME = "Structural Framing Tags";
-        private const string LINE_CATEGORY_NAME = "Lines";
+        private const string LINE_CATEGORY_NAME = "Autodesk.Revit.DB.DetailLine";
+        private const string TAG_CATEGORY_NAME = "Autodesk.Revit.DB.IndependentTag";
+        private const string TEXT_NOTE_CATEGOR_NAME = "Autodesk.Revit.DB.TextNote";
 
         private double stepLen = 0;
         private BoundingBoxXYZ boxMin;
@@ -67,7 +67,8 @@ namespace BIMwork
                         {
                             continue;
                         }
-                        switch (el.Category.Name)
+                        string elType = el.GetType().ToString();
+                        switch (elType)
                         {
                             // text notes
                             case TEXT_NOTE_CATEGOR_NAME:

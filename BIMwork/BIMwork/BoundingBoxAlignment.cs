@@ -11,7 +11,7 @@ namespace BIMwork
     public class BoundingBoxAlignment : IExternalCommand
     {
         private const string BOUNDING_BOX_ALIGNMENT = "BOUNDING_BOX_ALIGNMENT";
-        private const string TEXT_NOTE_CATEGOR_NAME = "Text Notes";
+        private const string TEXT_NOTE_CATEGOR_NAME = "Autodesk.Revit.DB.TextNote";
 
         Result IExternalCommand.Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
@@ -43,13 +43,19 @@ namespace BIMwork
                     for (int i = 0; i < count; i++)
                     {
                         Element el = doc.GetElement(ids[i]);
-                        if (el == null || el.Category.Name != TEXT_NOTE_CATEGOR_NAME)
+                        if (el == null)
+                        {
+                            continue;
+                        }
+                        string elType = el.GetType().ToString();
+                        if (elType != TEXT_NOTE_CATEGOR_NAME)
                         {
                             continue;
                         }
                         // handle agliment
                         agliment(ref doc, ref view, ref el);
                     }
+
                     trans.Commit();
                 }
                 return Result.Succeeded;
