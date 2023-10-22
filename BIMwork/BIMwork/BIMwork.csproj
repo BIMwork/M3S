@@ -52,14 +52,19 @@
   <ItemGroup>
     <Compile Include="AllowEndpoint.cs" />
     <Compile Include="Angle120.cs" />
+    <Compile Include="Angle120Utils.cs" />
     <Compile Include="Angle60.cs" />
+    <Compile Include="Angle60Utils.cs" />
     <Compile Include="Angle90.cs" />
+    <Compile Include="Angle90Utils.cs" />
+    <Compile Include="AngleUtils.cs" />
     <Compile Include="BoundingBoxAlignment.cs" />
     <Compile Include="CADReload.cs" />
     <Compile Include="DeleteDefaultType.cs" />
     <Compile Include="DisallowEndpoint.cs" />
     <Compile Include="M3SV.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TargetPoint.cs" />
     <Compile Include="XCenterAlign.cs" />
     <Compile Include="XLeftAlign.cs" />
     <Compile Include="XRightAlign.cs" />

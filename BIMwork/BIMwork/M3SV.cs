@@ -13,23 +13,23 @@ namespace BIMwork
     {
         private const string TAB_NAME = "BIMWork";
 
-        private const string PANEL_LEADER_NAME = "アングル";
+        private const string PANEL_LEADER_NAME = "引出線";
         private const string GROUP_LEADER_NAME = "引出線";
 
         private const string PANEL_CONNECTION_NAME = "許可・禁⽌";
         private const string GROUP_CONNECTION_NAME = "端点⼀括結合許可・禁⽌";
 
-        private const string PANEL_ALIGNMENT_NAME = "ソート";
+        private const string PANEL_ALIGNMENT_NAME = "整列";
         private const string GROUP_ALIGNMENT_NAME = "整列";
 
-        private const string PANEL_CAD_RELOAD_NAME = "Reload";
+        private const string PANEL_CAD_RELOAD_NAME = "再ロード";
         private const string BTN_CAD_RELOAD_NAME = "CAD 再ロード";
 
-        private const string PANEL_DELETE_DEFAULT_TYPE_NAME = "Delete";
+        private const string PANEL_DELETE_DEFAULT_TYPE_NAME = "削除";
         private const string BTN_DELETE_DEFAULT_NAME = "デフォルトタイプ削除";
 
-        private const string PANEL_BOUNDING_BOX_ALIGNMENT_DEFAULT_TYPE_NAME = "Alignment";
-        private const string BTN_BOUNDING_BOX_ALIGNMENT_DEFAULT_NAME = "Bounding Box Alignment";
+        private const string PANEL_BOUNDING_BOX_ALIGNMENT_DEFAULT_TYPE_NAME = "文字";
+        private const string BTN_BOUNDING_BOX_ALIGNMENT_DEFAULT_NAME = "文字幅デフォルト";
 
         public Result OnShutdown(UIControlledApplication application)
         {

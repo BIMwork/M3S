@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Autodesk.Revit.Attributes;
 using Autodesk.Revit.DB;
 using Autodesk.Revit.UI;
+using BIMwork;
 
 namespace BIMwork
 {
@@ -10,7 +11,6 @@ namespace BIMwork
     public class Angle60 : IExternalCommand
     {
         private const string TRANSACTION_NAME = "BOO_TONE_ANGLE_60";
-        private const double ANGLE_TARGET = 60;
         private const string TAG_CATEGORY_NAME = "Autodesk.Revit.DB.IndependentTag";
         private const string TEXT_NOTE_CATEGOR_NAME = "Autodesk.Revit.DB.TextNote";
 
@@ -86,6 +86,9 @@ namespace BIMwork
         {
             TextNote txtNode = el as TextNote;
             XYZ coord = txtNode.Coord;
+
+            string oxyz = AngleUtils.getCoordinateAxisTextNote(ref coord);
+
             IList<Leader> leaders = txtNode.GetLeaders();
             for (int i = 0; i < leaders.Count; i++)
             {
@@ -94,65 +97,39 @@ namespace BIMwork
                 XYZ elbow = leader.Elbow;
                 XYZ end = leader.End;
 
-                // update
-                // 3 điểm thẳng hàng chéo
-                XYZ angle90Elbow = new XYZ(end.X, anchor.Y, 0);
-                XYZ angle90End = new XYZ(end.X, end.Y, 0);
-
-                // anchor.Y == end.Y
-                if (Math.Abs(anchor.Y - end.Y) <= 0.0001)
+                TargetPoint targetPoint = null;
+                switch (oxyz)
                 {
-                    double middle = (anchor.X - end.X) / 2;
-                    double elbowY = coord.Y > elbow.Y ? anchor.Y - Math.Abs(middle) : anchor.Y + Math.Abs(middle);
-
-                    angle90Elbow = new XYZ(anchor.X - middle, elbowY, 0);
+                    case "oxy":
+                        targetPoint = Angle60Utils.handleTextNotes60OXY(ref coord, ref anchor, ref elbow, ref end);
+                        break;
+                    case "oxz":
+                        targetPoint = Angle60Utils.handleTextNotes60OXZ(ref coord, ref anchor, ref elbow, ref end);
+                        break;
+                    case "oyz":
+                        targetPoint = Angle60Utils.handleTextNotes60OYZ(ref coord, ref anchor, ref elbow, ref end);
+                        break;
+                    default:
+                        targetPoint = null;
+                        break;
+                }
+                if (targetPoint == null)
+                {
+                    continue;
                 }
 
-                // anchor.X == end.X
-                if (Math.Abs(anchor.X - end.X) <= 0.0001)
-                {
-                    double middle = (anchor.Y - end.Y) / 2;
-                    double elbowX = coord.X > anchor.X ? anchor.X - Math.Abs(middle) : anchor.X + Math.Abs(middle);
-
-                    angle90Elbow = new XYZ(elbowX, anchor.Y - middle, 0);
-                }
-
-                calcNewElbowTextNotes(ref angle90End, ref angle90Elbow, ref coord);
-
-                leader.Elbow = angle90Elbow;
-                leader.End = angle90End;
+                // update leader line
+                leader.Elbow = targetPoint.elbow;
+                leader.End = targetPoint.end;
             }
-        }
-
-        private void calcNewElbowTextNotes(ref XYZ end, ref XYZ elbow, ref XYZ coord)
-        {
-            /* double absDy = Math.Abs(elbow.Y - end.Y);
-             double lenX = absDy / Math.Tan(Convert.ToDouble(ANGLE_TARGET) * Math.PI / 180.0);
-             lenX = Math.Abs(lenX);
-             double newEndX = end.X + lenX;
-             if (end.X < coord.X)
-             {
-                 newEndX = end.X - lenX;
-
-             }
-             XYZ newEnd = new XYZ(newEndX, end.Y, end.X);
-             end = newEnd;*/
-
-
-            double absDy = Math.Abs(end.Y - elbow.Y);
-            double lenX = absDy / Math.Tan(Convert.ToDouble(ANGLE_TARGET) * Math.PI / 180.0);
-            double newElbowX = elbow.X - lenX;
-            if (coord.X > elbow.X)
-            {
-                newElbowX = elbow.X + lenX;
-            }
-            XYZ newElbow = new XYZ(newElbowX, elbow.Y, elbow.X);
-            elbow = newElbow;
         }
 
         private void handleTag(ref Element el)
         {
             IndependentTag iTag = el as IndependentTag;
+            XYZ leaderElbow = iTag.LeaderElbow;
+            XYZ leaderEnd = iTag.LeaderEnd;
+            string oxyz = AngleUtils.getCoordinateAxisTag(ref leaderElbow, ref leaderEnd);
 
             IList<Reference> leaders = iTag.GetTaggedReferences();
 
@@ -161,59 +138,33 @@ namespace BIMwork
 
                 XYZ end = iTag.GetLeaderEnd(leaders[i]);
                 XYZ anchor = iTag.TagHeadPosition;
-                XYZ elbow = new XYZ(end.X, anchor.Y, end.Z);
+                XYZ elbow = iTag.GetLeaderElbow(leaders[i]);
 
-                XYZ angle90Elbow = new XYZ(end.X, anchor.Y, 0);
-                XYZ angle90End = new XYZ(end.X, end.Y, 0);
-
-                // anchor.Y == end.Y
-                if (Math.Abs(anchor.Y - end.Y) <= 0.0001)
+                TargetPoint targetPoint = null;
+                switch (oxyz)
                 {
-                    double middle = (anchor.X - end.X) / 2;
-                    double elbowY = anchor.Y > elbow.Y ? anchor.Y - Math.Abs(middle) : anchor.Y + Math.Abs(middle);
-
-                    angle90Elbow = new XYZ(anchor.X - middle, elbowY, 0);
+                    case "oxy":
+                        targetPoint = Angle60Utils.handleTag60OXY(ref anchor, ref elbow, ref end);
+                        break;
+                    case "oxz":
+                        targetPoint = Angle60Utils.handleTag60OXZ(ref anchor, ref elbow, ref end);
+                        break;
+                    case "oyz":
+                        targetPoint = Angle60Utils.handleTag60OYZ(ref anchor, ref elbow, ref end);
+                        break;
+                    default:
+                        targetPoint = null;
+                        break;
+                }
+                if (targetPoint == null)
+                {
+                    continue;
                 }
 
-                // anchor.X == end.X
-                if (Math.Abs(anchor.X - end.X) <= 0.0001)
-                {
-                    double middle = (anchor.Y - end.Y) / 2;
-                    double elbowX = anchor.X > anchor.X ? anchor.X - Math.Abs(middle) : anchor.X + Math.Abs(middle);
-
-                    angle90Elbow = new XYZ(elbowX, anchor.Y - middle, 0);
-                }
-
-                calcNewElbowTag(ref anchor, ref angle90End, ref angle90Elbow);
-
-                iTag.SetLeaderElbow(leaders[i], angle90Elbow);
-                iTag.SetLeaderEnd(leaders[i], angle90End);
+                // update leader line
+                iTag.SetLeaderElbow(leaders[i], targetPoint.elbow);
+                iTag.SetLeaderEnd(leaders[i], targetPoint.end);
             }
-        }
-
-        private void calcNewElbowTag(ref XYZ tagHeadPosition, ref XYZ end, ref XYZ elbow)
-        {
-            /* double absDy = Math.Abs(elbow.Y - end.Y);
-             double lenX = absDy / Math.Tan(Convert.ToDouble(ANGLE_TARGET) * Math.PI / 180.0);
-             lenX = Math.Abs(lenX);
-             double newEndX = end.X + lenX;
-             if (tagHeadPosition.X > elbow.X)
-             {
-                 newEndX = end.X - lenX;
-             }
-             XYZ newEnd = new XYZ(newEndX, end.Y, end.X);
-             end = newEnd;*/
-
-            double absDy = Math.Abs(elbow.Y - end.Y);
-            double lenX = absDy / Math.Tan(Convert.ToDouble(ANGLE_TARGET) * Math.PI / 180.0);
-            double newElbowX = elbow.X - lenX;
-            if (tagHeadPosition.X > elbow.X)
-            {
-                newElbowX = elbow.X + lenX;
-            }
-            XYZ newElbow = new XYZ(newElbowX, elbow.Y, elbow.X);
-            elbow = newElbow;
-
         }
     }
 }

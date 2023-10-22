@@ -50,13 +50,13 @@ namespace BIMwork
                     trans.Start();
                     // get middle
                     bool isCaclulateLen = caclulateLen(ref doc, ref view, ref ids);
-                    if (!isCaclulateLen)
-                    {
-                        message = "調整できない";
-                        trans.Commit();
-                        trans.Dispose();
-                        return Result.Failed;
-                    }
+                    /* if (!isCaclulateLen)
+                     {
+                         message = "移動できません。";
+                         trans.Commit();
+                         trans.Dispose();
+                         return Result.Failed;
+                     }*/
 
                     List<ElementId> sorted = sortData(doc, view, ids);
 
@@ -257,11 +257,5 @@ namespace BIMwork
             doc.Create.NewDetailCurve(view, newLine);
             doc.Delete(elId);
         }
-
-        private void handleNone(ref View view, ref Element el, double minX)
-        {
-            // todo hainv
-        }
-
     }
 }

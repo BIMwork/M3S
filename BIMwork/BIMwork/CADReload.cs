@@ -45,7 +45,8 @@ namespace BIMwork
                         string elType = el.GetType().ToString();
                         if (elType != IMPORT_INSTANCE_NAME)
                         {
-                            message = "Autodesk.Revit.DB.ImportInstanceタイプではないので" + elType;
+                            // message = "Autodesk.Revit.DB.ImportInstanceタイプではないので"+ elType;
+                            message = "リンクCADを選択してください。";
                             return Result.Failed;
                         }
 
