@@ -150,7 +150,8 @@ namespace BIMwork
             double boxMaxX = box.Max.X;
             if (boxMaxX != targetPoint.X)
             {
-                double len = Math.Abs(currentPoint.X - boxMaxX);
+                // double len = Math.Abs(currentPoint.X - boxMaxX);
+                double len = (boxMaxX - currentPoint.X);
                 double targetX = targetPoint.X - len;
 
                 XYZ newPoint = new XYZ(targetX, currentPoint.Y, currentPoint.Z);

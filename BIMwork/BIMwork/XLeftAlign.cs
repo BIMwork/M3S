@@ -149,7 +149,8 @@ namespace BIMwork
             double boxMinX = box.Min.X;
             if (boxMinX != targetPoint.X)
             {
-                double len = Math.Abs(currentPoint.X - boxMinX);
+                // double len = Math.Abs(currentPoint.X - boxMinX);
+                double len = currentPoint.X - boxMinX;
                 double targetX = targetPoint.X + len;
 
                 XYZ newPoint = new XYZ(targetX, currentPoint.Y, currentPoint.Z);

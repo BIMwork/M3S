@@ -12,19 +12,22 @@ namespace BIMwork
         public static string getCoordinateAxisTextNote(ref XYZ coord)
         {
             // oyz
-            if (coord.X == 0)
+            double coordX = Math.Round(coord.X, 5);
+            double coordY = Math.Round(coord.Y, 5);
+            double coordZ = Math.Round(coord.Z, 5);
+            if (coordX == 0)
             {
                 return OYZ;
             }
 
             // oxz
-            if (coord.Y == 0)
+            if (coordY == 0)
             {
                 return OXZ;
             }
 
             // oxy
-            if (coord.Z == 0)
+            if (coordZ == 0)
             {
                 return OXY;
             }

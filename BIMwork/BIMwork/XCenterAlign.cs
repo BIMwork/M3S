@@ -155,7 +155,8 @@ namespace BIMwork
             double boxMinX = box.Min.X;
             double boxMaxX = box.Max.X;
 
-            double boxMiddle = boxMinX + Math.Abs(boxMaxX - boxMinX) / 2;
+            // double boxMiddle = boxMinX + Math.Abs(boxMaxX - boxMinX) / 2;
+            double boxMiddle = boxMinX + (boxMaxX - boxMinX) / 2;
             double len = middleX - boxMiddle;
 
             double targetX = currentPoint.X + len;

@@ -153,7 +153,8 @@ namespace BIMwork
             double boxMinY = box.Min.Y;
             double boxMaxY = box.Max.Y;
 
-            double boxMiddle = boxMinY + Math.Abs(boxMaxY - boxMinY) / 2;
+            // double boxMiddle = boxMinY + Math.Abs(boxMaxY - boxMinY) / 2;
+            double boxMiddle = boxMinY + (boxMaxY - boxMinY) / 2;
             double len = middleY - boxMiddle;
 
             double targetY = currentPoint.Y + len;
