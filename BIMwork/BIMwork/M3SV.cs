@@ -31,6 +31,9 @@ namespace BIMwork
         private const string PANEL_BOUNDING_BOX_ALIGNMENT_DEFAULT_TYPE_NAME = "文字";
         private const string BTN_BOUNDING_BOX_ALIGNMENT_DEFAULT_NAME = "文字幅デフォルト";
 
+        private const string PANEL_JOIN_UNJOIN_GEOMETRY_NAME = "Geometry";
+        private const string GROUP_JOIN_UNJOIN_GEOMETRY_NAME = "Join";
+
         public Result OnShutdown(UIControlledApplication application)
         {
             return Result.Succeeded;
@@ -63,9 +66,13 @@ namespace BIMwork
                 RibbonPanel deleteDefaultPanel = application.CreateRibbonPanel(TAB_NAME, PANEL_DELETE_DEFAULT_TYPE_NAME);
                 createDeleteDefaultType(ref deleteDefaultPanel);
 
-                //
+                // bounding box alignment
                 RibbonPanel boundingBoxAlignment = application.CreateRibbonPanel(TAB_NAME, PANEL_BOUNDING_BOX_ALIGNMENT_DEFAULT_TYPE_NAME);
                 createBoundingBoxAligment(ref boundingBoxAlignment);
+
+
+                RibbonPanel joinPanel = application.CreateRibbonPanel(TAB_NAME, PANEL_JOIN_UNJOIN_GEOMETRY_NAME);
+                createJoinUnjoinGeometryPanel(ref joinPanel);
 
                 return Result.Succeeded;
             }
@@ -81,6 +88,45 @@ namespace BIMwork
             string smAssemblyPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             string smAppResourcePath = smAssemblyPath + "\\Resources\\" + icon;
             return smAppResourcePath;
+        }
+
+        private void createJoinUnjoinGeometryPanel(ref RibbonPanel panel)
+        {
+            // Get Assembly
+            Assembly assembly = Assembly.GetExecutingAssembly();
+            string assemblyFullName = assembly.Location;
+
+            PulldownButtonData joinGroupData = new PulldownButtonData("PULLDOWN_GROUP_JOIN_UNJOIN_GEOMETRY", GROUP_JOIN_UNJOIN_GEOMETRY_NAME);
+            PulldownButton joinGroup = panel.AddItem(joinGroupData) as PulldownButton;
+            joinGroup.ToolTip = "Join/Unjoin geometry";
+            // group1.LongDescription = "<p>Hello,</p><p>I am ComboBox #1.</p><p>Regards,</p>";
+
+            Uri uri16x16 = new Uri(getApplicationResourcesPath("join_unjoin_geometry.png"));
+            Uri uri32x32 = new Uri(getApplicationResourcesPath("join_unjoin_geometry.png"));
+            joinGroup.Image = new BitmapImage(uri16x16);
+            joinGroup.LargeImage = new BitmapImage(uri32x32);
+
+            // join geometry
+            PushButtonData joinGeometryItemData = new PushButtonData("BTN_JOIN_GEOMETRY", "Join Geometry",
+                assemblyFullName, "BIMwork.JoinGeometry");
+            PushButton joinGeometryItem = joinGroup.AddPushButton(joinGeometryItemData);
+            joinGeometryItem.ToolTip = "Join geometry";
+            Uri joinGeometryUri16x16 = new Uri(getApplicationResourcesPath("join_geometry.png"));
+            Uri joinGeometryUri32x32 = new Uri(getApplicationResourcesPath("join_geometry.png"));
+            joinGeometryItem.Image = new BitmapImage(joinGeometryUri16x16);
+            joinGeometryItem.LargeImage = new BitmapImage(joinGeometryUri32x32);
+
+            // unjoin geometry
+            PushButtonData unjoinGeometryItemData = new PushButtonData("BTN_UNJOIN_GEOMETRY", "Unjoin Geometry",
+                assemblyFullName, "BIMwork.UnjoinGeometry");
+            PushButton unjoinGeometryItem = joinGroup.AddPushButton(unjoinGeometryItemData);
+            unjoinGeometryItem.ToolTip = "Unjoin geometry";
+            Uri unjoinGeometryUri16x16 = new Uri(getApplicationResourcesPath("unjoin_geometry.png"));
+            Uri unjoinGeometryUri32x32 = new Uri(getApplicationResourcesPath("unjoin_geometry.png"));
+            unjoinGeometryItem.Image = new BitmapImage(unjoinGeometryUri16x16);
+            unjoinGeometryItem.LargeImage = new BitmapImage(unjoinGeometryUri32x32);
+
+            joinGroup.AddSeparator();
         }
 
         private void createLeaderPanel(ref RibbonPanel panel)
