@@ -51,7 +51,6 @@ namespace BIMwork
                             continue;
                         }
                         // string elType = el.GetType().ToString();
-                        // JoinGeometryUtils.UnjoinGeometry()
                         List<ElementId> joinIds = (List<ElementId>)JoinGeometryUtils
                             .GetJoinedElements(doc, el);
                         int joinCount = joinIds.Count;
