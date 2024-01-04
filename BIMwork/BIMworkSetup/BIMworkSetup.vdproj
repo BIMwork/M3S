@@ -165,6 +165,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_B066F8EF820F4223AAC5C45815F501C6"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_B1CFF7BABBC842C28EADB19306EEEDD4"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -172,12 +178,6 @@
         "Entry"
         {
         "MsmKey" = "8:_B52FCE0D78FD486586A120E924316959"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_B5388202EE214990873CAF3633C25550"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -219,13 +219,13 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_E68205CC98BF4560AC877D9BD8EBF008"
+        "MsmKey" = "8:_DF8F7D631F68448781CE240369CF5B05"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_EF1651F3062942F69D30CD6108DC8C91"
+        "MsmKey" = "8:_E68205CC98BF4560AC877D9BD8EBF008"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -244,7 +244,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_EF1651F3062942F69D30CD6108DC8C91"
+        "OwnerKey" = "8:_B066F8EF820F4223AAC5C45815F501C6"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -839,6 +839,37 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_B066F8EF820F4223AAC5C45815F501C6"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:BIMwork, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_B066F8EF820F4223AAC5C45815F501C6"
+                    {
+                    "Name" = "8:BIMwork.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:..\\BIMwork\\bin\\Debug\\BIMwork.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_DCEB201FBFD94255B51E1BCCC1AFB5DF"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B1CFF7BABBC842C28EADB19306EEEDD4"
             {
             "SourcePath" = "8:..\\build\\Resources\\x_with_center_alignment_32x32.png"
@@ -865,26 +896,6 @@
             "TargetName" = "8:y_center_alignment_16x16.png"
             "Tag" = "8:"
             "Folder" = "8:_C491C6626B8749AC815F3578D874C86D"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B5388202EE214990873CAF3633C25550"
-            {
-            "SourcePath" = "8:..\\build\\BIMwork.addin"
-            "TargetName" = "8:BIMwork.addin"
-            "Tag" = "8:"
-            "Folder" = "8:_DCEB201FBFD94255B51E1BCCC1AFB5DF"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1019,12 +1030,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E68205CC98BF4560AC877D9BD8EBF008"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DF8F7D631F68448781CE240369CF5B05"
             {
-            "SourcePath" = "8:..\\build\\Resources\\angle_120_32x32.png"
-            "TargetName" = "8:angle_120_32x32.png"
+            "SourcePath" = "8:..\\BIMwork\\bin\\Debug\\BIMwork.addin"
+            "TargetName" = "8:BIMwork.addin"
             "Tag" = "8:"
-            "Folder" = "8:_C491C6626B8749AC815F3578D874C86D"
+            "Folder" = "8:_DCEB201FBFD94255B51E1BCCC1AFB5DF"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1039,23 +1050,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_EF1651F3062942F69D30CD6108DC8C91"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_E68205CC98BF4560AC877D9BD8EBF008"
             {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:BIMwork, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_EF1651F3062942F69D30CD6108DC8C91"
-                    {
-                    "Name" = "8:BIMwork.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:..\\build\\BIMwork.dll"
-            "TargetName" = "8:"
+            "SourcePath" = "8:..\\build\\Resources\\angle_120_32x32.png"
+            "TargetName" = "8:angle_120_32x32.png"
             "Tag" = "8:"
-            "Folder" = "8:_DCEB201FBFD94255B51E1BCCC1AFB5DF"
+            "Folder" = "8:_C491C6626B8749AC815F3578D874C86D"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1178,7 +1178,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:BIMworkSetup"
         "ProductCode" = "8:{C1F063A7-BF0B-449A-AE35-F6F8533D0EA0}"
-        "PackageCode" = "8:{082A659F-C671-4617-BBDA-C753E2A2C46E}"
+        "PackageCode" = "8:{CA77253B-FBCF-495F-A46B-307BE17A42E3}"
         "UpgradeCode" = "8:{9C4CB807-D3AA-4B6D-9044-9C6CDE5EE0E0}"
         "AspNetVersion" = "8:"
         "RestartWWWService" = "11:FALSE"
