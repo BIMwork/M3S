@@ -135,10 +135,10 @@ namespace BIMwork
             BoundingBoxXYZ bb = elStart.get_BoundingBox(view);
             Outline outline = new Outline(bb.Min, bb.Max);
             BoundingBoxIntersectsFilter bbfilter
-                    = new BoundingBoxIntersectsFilter(outline);
+                = new BoundingBoxIntersectsFilter(outline);
 
             FilteredElementCollector collector
-              = new FilteredElementCollector(
+                = new FilteredElementCollector(
                 doc, view.Id);
             ICollection<ElementId> idsExclude
                 = new List<ElementId>();
