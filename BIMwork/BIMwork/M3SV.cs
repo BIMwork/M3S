@@ -31,8 +31,8 @@ namespace BIMwork
         private const string PANEL_BOUNDING_BOX_ALIGNMENT_DEFAULT_TYPE_NAME = "文字";
         private const string BTN_BOUNDING_BOX_ALIGNMENT_DEFAULT_NAME = "文字幅デフォルト";
 
-        private const string PANEL_JOIN_UNJOIN_GEOMETRY_NAME = "Geometry";
-        private const string GROUP_JOIN_UNJOIN_GEOMETRY_NAME = "Join";
+        private const string PANEL_JOIN_UNJOIN_GEOMETRY_NAME = "結合";
+        private const string GROUP_JOIN_UNJOIN_GEOMETRY_NAME = "結合";
 
         public Result OnShutdown(UIControlledApplication application)
         {
@@ -107,20 +107,20 @@ namespace BIMwork
             joinGroup.LargeImage = new BitmapImage(uri32x32);
 
             // join geometry
-            PushButtonData joinGeometryItemData = new PushButtonData("BTN_JOIN_GEOMETRY", "Join Geometry",
+            PushButtonData joinGeometryItemData = new PushButtonData("BTN_JOIN_GEOMETRY", "床同タイプ同レベル結合",
                 assemblyFullName, "BIMwork.JoinGeometry");
             PushButton joinGeometryItem = joinGroup.AddPushButton(joinGeometryItemData);
-            joinGeometryItem.ToolTip = "Join geometry";
+            joinGeometryItem.ToolTip = "床同タイプ同レベル結合";
             Uri joinGeometryUri16x16 = new Uri(getApplicationResourcesPath("join_geometry.png"));
             Uri joinGeometryUri32x32 = new Uri(getApplicationResourcesPath("join_geometry.png"));
             joinGeometryItem.Image = new BitmapImage(joinGeometryUri16x16);
             joinGeometryItem.LargeImage = new BitmapImage(joinGeometryUri32x32);
 
             // unjoin geometry
-            PushButtonData unjoinGeometryItemData = new PushButtonData("BTN_UNJOIN_GEOMETRY", "Unjoin Geometry",
+            PushButtonData unjoinGeometryItemData = new PushButtonData("BTN_UNJOIN_GEOMETRY", "選択部材全結合解除",
                 assemblyFullName, "BIMwork.UnjoinGeometry");
             PushButton unjoinGeometryItem = joinGroup.AddPushButton(unjoinGeometryItemData);
-            unjoinGeometryItem.ToolTip = "Unjoin geometry";
+            unjoinGeometryItem.ToolTip = "選択部材全結合解除";
             Uri unjoinGeometryUri16x16 = new Uri(getApplicationResourcesPath("unjoin_geometry.png"));
             Uri unjoinGeometryUri32x32 = new Uri(getApplicationResourcesPath("unjoin_geometry.png"));
             unjoinGeometryItem.Image = new BitmapImage(unjoinGeometryUri16x16);
